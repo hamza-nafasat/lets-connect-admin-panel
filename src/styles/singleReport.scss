@@ -1,0 +1,48 @@
+.singleReportPage {
+    padding: 1rem 0;
+    @include flex(row, space-around, flex-start, 2rem);
+    > .imgSection {
+        background-color: $blurBackground;
+        padding-bottom: 1rem;
+        border-radius: 10px;
+        @include flex(column, flex-start, flex-start, 1rem);
+        > img {
+            @include square(30rem);
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        > p {
+            width: 30rem;
+            padding: 0 1rem;
+            border-radius: 10px;
+            font-size: 1rem;
+            color: $darkGray;
+        }
+    }
+    > .detailsSection {
+        width: 40%;
+        @include flex(column, flex-start, flex-start, 1.5rem);
+        padding: 2rem 0;
+        h3 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+        > p {
+            font-size: 1rem;
+            color: $darkGray;
+        }
+        > .editBtn {
+            @include button(100%, 1rem, white, $blueBtn, $blueBtnHover);
+            border-radius: 10px;
+        }
+        > .delBtn {
+            @include button(100%, 1rem, $blue, transparent, transparent);
+            border-radius: 10px;
+            border: 2px solid $blue;
+            &:hover {
+                filter: brightness(150%);
+            }
+        }
+    }
+}

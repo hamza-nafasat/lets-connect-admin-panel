@@ -1,0 +1,73 @@
+.postsPage {
+    padding: 1rem 0;
+    > .postsSection {
+        margin: 2rem 1rem;
+        @include flex(row, space-around, center, 0.3125rem, wrap);
+        row-gap: 1rem;
+        > .singlePost {
+            border-radius: 10px;
+            background-color: $blurBackground;
+            > a {
+                > img,
+                > video,
+                > iframe {
+                    @include square(18rem);
+                    object-fit: contain;
+                    border-radius: 10px;
+                }
+                > p {
+                    @include square(18rem);
+                    border-radius: 10px;
+                    padding: 1rem 0 1rem 1rem;
+                    overflow-y: auto;
+                    @include customScrollbar(none);
+                }
+                > iframe {
+                    overflow: hidden;
+                }
+            }
+            section {
+                @include flex(column);
+                gap: 0.5rem;
+                .title {
+                    text-align: left;
+                    max-width: 20rem;
+                    font-size: 1rem;
+                    padding: 0 1rem;
+                    color: $darkGray;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                }
+                .galleryTypes {
+                    @include flex(row, space-between, center, 0.5rem);
+                    padding: 0 1rem;
+                    font-size: 1.2rem;
+                    color: $darkGray;
+                }
+                > div {
+                    font-size: 1.5rem;
+                    width: 100%;
+                    @include flex(row, space-around, center, 0.5rem);
+                    > p {
+                        @include flex;
+                        gap: 0.2rem;
+                    }
+                }
+                > p {
+                    width: 100%;
+                    font-size: 0.8rem;
+                    text-align: end;
+                    padding: 0.5rem;
+                }
+            }
+        }
+    }
+    > .paginationSection {
+        width: 100%;
+        @include flex(row, center, center, 1rem);
+        > button {
+            @include button(none, 0.5rem 1rem, white, $blueBtn, $blueBtnHover, 1rem);
+        }
+    }
+}

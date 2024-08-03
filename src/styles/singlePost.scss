@@ -1,0 +1,96 @@
+.singlePostPage {
+    padding: 1rem 0;
+    @include flex(row, flex-start, flex-start, 2rem, wrap);
+    > .imgSection {
+        background-color: $blurBackground;
+        padding-bottom: 1rem;
+        border-radius: 10px;
+        @include flex(column, flex-start, flex-start, 1rem);
+        > img,
+        > video {
+            @include square(35rem);
+            object-fit: contain;
+            border-radius: 10px;
+        }
+        .eventPoster {
+            @include square(30rem);
+        }
+        > iframe {
+            @include square(35rem);
+            border-radius: 10px;
+        }
+        > p {
+            width: 35rem;
+            padding: 1rem;
+            border-radius: 10px;
+            font-size: 1.2rem;
+        }
+        > div {
+            width: 100%;
+            @include flex(row, space-around, center, 0rem);
+            > button,
+            > p {
+                @include flex;
+                @include button(none, 0rem 1rem, $blueBtn, transparent, transparent);
+                font-size: 2rem;
+            }
+        }
+        .eventDiv {
+            button {
+                font-size: 1.5rem;
+                padding: 1rem 0;
+            }
+        }
+    }
+    > .detailsSection {
+        width: 30%;
+        @include flex(column, flex-start, flex-start, 1.5rem);
+        padding: 2rem 0;
+        h3 {
+            font-size: 1.4rem;
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+        > p {
+            font-size: 1rem;
+            color: $darkGray;
+        }
+        > a {
+            width: 100%;
+            > .editBtn {
+                @include button(100%, 1rem, white, $blueBtn, $blueBtnHover);
+                border-radius: 10px;
+            }
+        }
+        > .delBtn {
+            @include button(100%, 1rem, $blue, transparent, transparent);
+            border-radius: 10px;
+            border: 2px solid $blue;
+            &:hover {
+                filter: brightness(150%);
+            }
+        }
+    }
+    > .eventDetailsSection {
+        p {
+            font-size: 1.5rem;
+        }
+    }
+    > .singleEventChartSection {
+        width: 100%;
+        @include flex(column, flex-start, flex-start, 1.5rem);
+        padding: 1rem 3rem;
+        > h3 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: $blue;
+        }
+        > div {
+            align-self: center;
+            width: 90%;
+            border-radius: 20px;
+            padding: 1rem 3rem;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    }
+}

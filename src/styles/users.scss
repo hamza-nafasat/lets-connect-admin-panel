@@ -1,0 +1,64 @@
+.usersPage {
+    width: 100%;
+    padding: 1rem;
+    @include flex(column, flex-start, center, 1rem);
+    > .statsSection {
+        width: 100%;
+        @include flex(row, space-around, center, 1rem);
+        > div {
+            > h3 {
+                font-size: 3rem;
+                font-weight: 500;
+            }
+            > p {
+                color: $lightGray;
+            }
+        }
+    }
+    > .chartSection {
+        width: 100%;
+        @include flex;
+        padding: 1rem 7rem;
+    }
+    .usersListSection {
+        width: 100%;
+        @include flex(column, center, center, 1rem);
+        > article {
+            width: 100%;
+            @include flex(column, center, center, 0.5rem);
+            > .headingSection {
+                @include flex(row, space-between);
+                padding: 0 2rem;
+                gap: 0;
+                width: 85%;
+                > p {
+                    text-transform: uppercase;
+                }
+            }
+            > .listSection {
+                width: 85%;
+                a {
+                    padding: 0.5rem 2rem;
+                    background-color: $blurBackground;
+                    border-radius: 10px;
+                    @include flex(row, space-between);
+                    img {
+                        @include square(2.5rem);
+                        border-radius: 50%;
+                        object-fit: cover;
+                    }
+                }
+            }
+        }
+        > .paginationSection {
+            > button {
+                @include button(none, 0.5rem 1rem, white, $blueBtn, $blueBtnHover, 1rem);
+            }
+        }
+        > .excelBtn {
+            > button {
+                @include button(none, 1rem 2rem, white, #05802c, #03571e, 1.2rem);
+            }
+        }
+    }
+}

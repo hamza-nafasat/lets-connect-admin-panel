@@ -1,0 +1,44 @@
+.loginPage {
+    @include flex(row);
+    height: 100vh;
+    width: 100vw;
+    background: whitesmoke;
+    > section {
+        @include flex(column, center, flex-start, 1rem);
+        width: 30vw;
+        > h1 {
+            font-size: 2.5rem;
+            color: $blue;
+        }
+        > div {
+            > h3 {
+                font-size: 1.7rem;
+                font-weight: 300;
+            }
+            p {
+                color: $darkGray;
+            }
+        }
+        > form {
+            @include flex(column, center, flex-start, 1.5rem);
+            width: 100%;
+            > section {
+                width: 100%;
+                > label {
+                    font-size: 1.2rem;
+                    margin-left: 0.2rem;
+                }
+                > input {
+                    @include inputStyle;
+                    border: 1px solid $blue;
+                    border-radius: 10px;
+                    font-size: 1rem;
+                }
+            }
+            > button {
+                @include button(100%, 1rem, white, $blueBtn, $blueBtnHover);
+                border-radius: 10px;
+            }
+        }
+    }
+}

@@ -1,0 +1,115 @@
+.createPostPage {
+    padding: 1rem 0;
+    @include flex(column, flex-start, flex-start, 1rem);
+    > .headingArticle {
+        width: 100%;
+        @include flex(column, center, flex-start, 0rem);
+        > h2 {
+            font-size: 2.5rem;
+            font-weight: 500;
+            color: $blue;
+        }
+    }
+    > .formArticleS {
+        width: 100%;
+        @include flex;
+        > form {
+            width: 60%;
+            @include flex(column, center, flex-start, 1rem);
+            > section {
+                width: 100%;
+                @include flex(column, space-between, flex-start, 0.2rem);
+                > label {
+                    font-size: 1.2rem;
+                    color: $blue;
+                }
+                > select {
+                    width: 100%;
+                    padding: 0.8rem 1rem;
+                    font-size: 0.9rem;
+                    background-color: white;
+                    border: 1px solid $lightGray;
+                    outline: none;
+                    border-radius: 10px;
+                    cursor: pointer;
+                }
+                > textarea {
+                    border-radius: 8px;
+                    height: 100px;
+                    width: 100%;
+                    resize: none;
+                    outline: 0;
+                    padding: 8px 14px;
+                    border: 1px solid $lightGray;
+                }
+                > input {
+                    @include inputStyle;
+                    padding: 0.8rem 1rem;
+                    font-size: 0.9rem;
+                    border: 1px solid $lightGray;
+                    border-radius: 10px;
+                }
+            }
+            > .toggelButton {
+                @include flex(row, space-between, center, 0.5rem);
+                padding-right: 2rem;
+            }
+            > button {
+                @include button;
+                border-radius: 10px;
+                font-size: 1.2rem;
+            }
+            > .showFileSection {
+                width: 100%;
+                @include flex;
+                > img,
+                video,
+                iframe {
+                    width: 30%;
+                    border-radius: 10px;
+                    object-fit: cover;
+                }
+                > iframe {
+                    height: 230px;
+                }
+            }
+            // only css for update event
+            > .showMultiImages,
+            > .showMultiVideos,
+            > .ShowPoster {
+                width: 100%;
+                > h3 {
+                    color: $blue;
+                }
+                > div {
+                    background-color: $blurBackground;
+                    border-radius: 10px;
+                    padding: 1rem;
+                    @include flex(row, center, center, 1rem, wrap);
+                    > div {
+                        padding: 0.5rem;
+                        position: relative;
+                        > img {
+                            @include square(10rem);
+                            border-radius: 10px;
+                        }
+                        > video {
+                            border-radius: 10px;
+                            @include square(10rem);
+                        }
+                        > span {
+                            position: absolute;
+                            top: -5px;
+                            right: -5px;
+                            background-color: white;
+                            padding: 0.4rem;
+                            cursor: pointer;
+                            border-radius: 50%;
+                            font-size: 0.7rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

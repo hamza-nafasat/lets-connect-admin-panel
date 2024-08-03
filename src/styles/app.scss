@@ -1,0 +1,253 @@
+// UNIVERSAL CSS
+
+$blue: rgb(52, 61, 203);
+$darkGray: rgb(102, 102, 102);
+$lightGray: rgb(196, 196, 196);
+$blueBtn: rgb(52, 61, 203);
+$blueBtnHover: rgb(52, 61, 203, 0.8);
+$red: rgb(188, 28, 44);
+$blurBackground: rgb(205, 226, 224);
+$searchBlueBorder: rgb(74, 140, 216);
+
+// UNIVERSAL CSS
+@import "mixin.scss";
+:root {
+    font-family: Inter, system-ui, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+}
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: white;
+}
+li {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+
+@import "loader.scss";
+@import "login.scss";
+@import "users.scss";
+@import "singleUser.scss";
+@import "post.scss";
+@import "singlePost.scss";
+@import "singleReport.scss";
+@import "createPost.scss";
+@import "event.scss";
+@import "report.scss";
+
+// ADMIN DASHBOARD CONTAINER
+// =========================
+.adminContainer {
+    @include grid(1.1fr 4fr, 1rem);
+    height: 100vh;
+    > aside {
+        @include customScrollbar(none);
+        @include flex(column, unset, unset, 1rem);
+        width: 100%;
+        background-color: $blurBackground;
+        position: relative;
+        z-index: 42;
+        overflow-y: auto;
+        > .logoSection {
+            @include flex(row);
+            gap: 1rem;
+            padding: 2rem 0 3rem;
+            > h2 {
+                color: $blue;
+            }
+            > img {
+                @include square(2rem);
+            }
+        }
+        > .listSection {
+            @include flex(column, center, center, 1rem);
+            // margin-bottom: auto;
+            > h5 {
+                @include heading(2px);
+                opacity: 0.8;
+                margin: 0.5rem 0rem;
+            }
+            > ul {
+                min-width: 60%;
+                @include flex(column, center, unset, 0.5rem);
+                > li {
+                    border-radius: 10px;
+                    padding: 0.5rem 1rem;
+                    > a {
+                        @include flex(row, unset);
+                        font-size: 1.2rem;
+                        > svg {
+                            font-size: 1.5rem;
+                        }
+                    }
+                }
+            }
+        }
+        > .btnSection {
+            margin: 7rem 2rem 0 0;
+            margin-bottom: 2rem;
+            @include flex();
+            button {
+                @include flex;
+                gap: 0.6rem;
+                @include button(none, 1rem, none, transparent, transparent, 1.3rem);
+                color: $red;
+                > svg {
+                    font-size: 1.5rem;
+                }
+            }
+        }
+    }
+}
+// ==============
+// search section
+.searchSection {
+    width: 100%;
+    @include flex(row, center, center, 1rem);
+    > div {
+        @include flex(row, center, center, 0.5rem);
+        @include inputStyle();
+        max-width: 70%;
+        padding: 0 0.3rem 0 1rem;
+        // border: 1px solid $darkGray;
+        border: 2px solid $searchBlueBorder;
+        border-radius: 10px;
+        > svg {
+            font-size: 1.5rem;
+        }
+        > input {
+            @include inputStyle;
+            font-size: 1rem;
+            padding: 0.9rem;
+        }
+        > button {
+            @include flex;
+            gap: 0.6rem;
+            @include button(none, 0rem 1rem, $blueBtn, transparent, transparent);
+            font-size: 1rem;
+        }
+    }
+    > select {
+        @include flex;
+        gap: 0.6rem;
+        @include button(none, 0.9rem 0.2rem, $darkGray, transparent, transparent);
+        border: 2px solid $searchBlueBorder;
+        border-radius: 10px;
+        font-size: 1rem;
+    }
+    > input {
+        @include inputStyle();
+        width: 20%;
+        padding: 0.9rem;
+        font-size: 1rem;
+        border: 2px solid $searchBlueBorder;
+        border-radius: 10px;
+    }
+    > button {
+        @include flex;
+        @include button(none, 0.9rem 2.5rem, white, $blueBtn, $blueBtnHover);
+        border-radius: 10px;
+    }
+}
+// ==================
+// toggel button css
+.toggelButton {
+    .switch {
+        font-size: 17px;
+        position: relative;
+        display: inline-block;
+        width: 3.5em;
+        height: 2em;
+    }
+    .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        inset: 0;
+        background: #d4acfb;
+        border-radius: 50px;
+        transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 1.4em;
+        width: 1.4em;
+        left: 0.3em;
+        bottom: 0.3em;
+        background-color: white;
+        border-radius: 50px;
+        box-shadow: 0 0px 20px rgba(0, 0, 0, 0.4);
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .switch input:checked + .slider {
+        background: #b84fce;
+    }
+    .switch input:focus + .slider {
+        box-shadow: 0 0 1px #b84fce;
+    }
+    .switch input:checked + .slider:before {
+        transform: translateX(1.6em);
+        width: 2em;
+        height: 2em;
+        bottom: 0;
+    }
+}
+// ==================
+// file upload css
+.file-upload-form {
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .file-upload-label input {
+        display: none;
+    }
+    .file-upload-label {
+        cursor: pointer;
+        background-color: #ddd;
+        padding: 1rem;
+        width: 100%;
+        border: 1px solid $lightGray;
+        border-radius: 10px;
+        box-shadow: 0px 0px 200px -50px rgba(0, 0, 0, 0.719);
+    }
+    .file-upload-design {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+    }
+    .browse-button {
+        background-color: transparent;
+        color: $blue;
+        @include flex;
+        font-size: 1.2rem;
+    }
+}
+// ====================
+// create button for post gallery event
+.CreateBtn {
+    @include button(none, 1rem, white, $blueBtn, $blueBtnHover, 1.2rem, 50%);
+    @include flex;
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    box-shadow: 0px 0px 200px -50px rgba(0, 0, 0, 0.719);
+    > svg {
+        font-size: 1.8rem;
+    }
+}

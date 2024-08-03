@@ -1,0 +1,48 @@
+.reportsPage {
+    padding: 1rem 0;
+    > .eventsSection {
+        margin: 2rem 1rem;
+        @include flex(row, flex-start, center, 1rem, wrap);
+        > .singleEvent {
+            padding-bottom: 0.5rem;
+            border-radius: 10px;
+            background-color: $blurBackground;
+            > a {
+                > img {
+                    @include square(15rem);
+                    object-fit: cover;
+                    border-top-right-radius: 10px;
+                    border-top-left-radius: 10px;
+                }
+                > section {
+                    padding: 0 1rem;
+                    @include flex(column);
+                    gap: 0.5rem;
+                    > div {
+                        font-size: 1.5rem;
+                        width: 100%;
+                        @include flex(row, space-around, center, 0.5rem);
+                        > p {
+                            @include flex;
+                            font-size: 1rem;
+                            gap: 0.2rem;
+                        }
+                    }
+                    > p {
+                        width: 100%;
+                        font-size: 0.8rem;
+                        text-align: end;
+                        padding: 0.5rem;
+                    }
+                }
+            }
+        }
+    }
+    > .paginationSection {
+        width: 100%;
+        @include flex(row, center, center, 1rem);
+        > button {
+            @include button(none, 0.5rem 1rem, white, $blueBtn, $blueBtnHover, 1rem);
+        }
+    }
+}

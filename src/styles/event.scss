@@ -1,0 +1,85 @@
+.eventsPage {
+    padding: 1rem 0;
+    > .statsSection {
+        padding: 1rem 0;
+        width: 100%;
+        @include flex(row, space-around, center, 1rem);
+        > div {
+            > h3 {
+                font-size: 3rem;
+                font-weight: 500;
+            }
+            > p {
+                color: $lightGray;
+            }
+        }
+    }
+    > .eventsSection {
+        margin: 2rem 1rem;
+        @include flex(row, space-around, center, 0.3125rem, wrap);
+        row-gap: 1rem;
+        > .singleEvent {
+            padding-bottom: 0.5rem;
+            border-radius: 10px;
+            background-color: $blurBackground;
+            > a {
+                > img {
+                    @include square(18rem);
+                    object-fit: cover;
+                    border-top-right-radius: 10px;
+                    border-top-left-radius: 10px;
+                }
+                > p {
+                    @include square(18rem);
+                    border-radius: 10px;
+                    padding: 1rem 0 1rem 1rem;
+                    overflow-y: auto;
+                }
+                > section {
+                    padding: 0 1rem;
+                    @include flex(column);
+                    gap: 0.5rem;
+                    .title {
+                        width: 100%;
+                        text-align: left;
+                        max-width: 18rem;
+                        font-size: 1rem;
+                        color: $darkGray;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                    }
+                    .galleryTypes {
+                        @include flex(row, space-between, center, 0.5rem);
+                        padding: 0 1rem;
+                        font-size: 1.2rem;
+                        color: $darkGray;
+                    }
+                    > div {
+                        font-size: 1.5rem;
+                        width: 100%;
+                        @include flex(row, space-around, center, 0.5rem);
+                        > p {
+                            @include flex;
+                            font-size: 1.2rem;
+                            gap: 0.2rem;
+                        }
+                    }
+                    > p {
+                        width: 100%;
+                        font-size: 0.8rem;
+                        text-align: end;
+                        padding: 0.5rem;
+                    }
+                }
+            }
+        }
+    }
+    > .paginationSection {
+        width: 100%;
+        @include flex(row, center, center, 1rem);
+        > button {
+            @include button(none, 0.5rem 1rem, white, $blueBtn, $blueBtnHover, 1rem);
+        }
+    }
+}
